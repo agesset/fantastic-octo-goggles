@@ -1,0 +1,30 @@
+.container {
+  background-image: url("drapbenin.png");
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position-x: top right;
+  background-color: blanchedalmond;
+  width: 350 px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  padding: 12 px;
+  margin-bottom: 20 px;
+  border: 1 px solid black;
+}
+
+select {
+  background-color: burlywood;
+  display: flex;
+  position: relative;
+  height: 3em;
+  line-height: 50%;
+  border-radius: .25;
+  margin: 20px;
+  cursor: pointer;
+  overflow-y: scroll;
+
+}
