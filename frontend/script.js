@@ -1,6 +1,6 @@
 const api_url = 'https://lamenarrowformats--prunelmel.repl.co'
 const selectDep = document.querySelector("#dep")
-url = api_url + '/' + resource
+url = api_url + '/dep'
 
 //Dep
 axios
