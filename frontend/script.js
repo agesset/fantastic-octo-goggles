@@ -4,6 +4,12 @@ const selectCom = document.querySelector("#com")
 const selectArr = document.querySelector("#arr")
 const selectQr = document.querySelector("#qr")
 
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
+        select.classList.toggle('display-none')
+    })
+})
+
 //Dep
 doApiLogic('dep')
 //Com
@@ -20,10 +26,10 @@ selectArr.addEventListener("change", (event) => {
 });
 
 /**
- * Do API async call and dom manipulation
- * @param {string} resource Resource to fetch from API Ex. dep, com, arr or qr
- * @param {JSON} parent Resource parent object Ex. To fetch com, parent object must be {resource: 'dep', value: 'ALIBORI'}
- */
+* Do API async call and dom manipulation
+* @param {string} resource Resource to fetch from API Ex. dep, com, arr or qr
+* @param {JSON} parent Resource parent object Ex. To fetch com, parent object must be {resource: 'dep', value: 'ALIBORI'}
+*/
 function doApiLogic(resource, parent = { resource: '', value: '' }) {
     let url
     /**
