@@ -1,9 +1,10 @@
 const api_url = 'https://lamenarrowformats--prunelmel.repl.co'
 const selectDep = document.querySelector("#dep")
+url = api_url + '/' + resource
 
 //Dep
 axios
-    .get(api_url + '/dep')
+    .get(url)
     .then(function (response) {
         // handle success
         if (response.status > 200 || response.status < 300) {
@@ -12,12 +13,13 @@ axios
             for (const item in response.data) {
                 options += '<option value="' + response.data[item] + '">' + response.data[item] + '</option>'
             }
-            selectDep.innerHTML = options
+            document.querySelector("#dep").innerHTML = options
         } else {
-            console.log(response)
+            alert("Something went wrong")
         }
     })
     .catch(function (error) {
         // handle error
         console.log(error)
+        alert(error.toJSON())
     }).finally(function () { })
