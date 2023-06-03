@@ -6,7 +6,7 @@ const selectQr = document.querySelector("#qr")
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
-        select.classList.toggle('display-none')
+        select.classList.add('display-none')
     })
 })
 
@@ -63,6 +63,7 @@ function doApiLogic(resource, parent = { resource: '', value: '' }) {
                  * @example window[`select${resource.charAt(0).toUpperCase() + resource.slice(1)}`].innerHTML = options
                  */
                 document.querySelector("#" + resource).innerHTML = options
+                document.querySelector("#" + resource).classList.remove('display-none')
             } else {
                 alert("Something went wrong")
             }
