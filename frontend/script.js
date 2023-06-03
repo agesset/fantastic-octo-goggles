@@ -9,7 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
         select.classList.add('display-none')
     })
 })
-
+//After page loaded, hide selects
+document.addEventListener('DOMContentLoaded', () => {
+    toggleNodeVisibility()
+})
 //Dep
 doApiLogic('dep')
 //Com
@@ -25,6 +28,20 @@ selectArr.addEventListener("change", (event) => {
     doApiLogic('qr', { resource: 'arr', value: event.target.value })
 });
 
+/**
+* Manipulate DOM to toggle selected node visibility
+* @param {string} resource Resource to hide Default 'all'
+* @param {boolean} hide Hide or Show this resource ? Default true
+*/
+function toggleNodeVisibility(hide = true) {
+    document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
+        if (hide) {
+            select.classList.add('display-none')
+        } else {
+            select.classList.remove('display-none')
+        }
+    })
+}
 /**
 * Do API async call and dom manipulation
 * @param {string} resource Resource to fetch from API Ex. dep, com, arr or qr
