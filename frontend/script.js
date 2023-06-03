@@ -2,7 +2,7 @@ const api_url = 'https://lamenarrowformats--prunelmel.repl.co'
 const selectDep = document.querySelector("#dep")
 
 //Dep
-
+doApiLogic('dep')
 
 /**
  * Do API async call and dom manipulation
