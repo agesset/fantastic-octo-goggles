@@ -12,10 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
 doApiLogic('dep')
 //Com
 selectDep.addEventListener("change", (event) => {
+    toggleNodeVisibility('arr') // Hide arr select when dep select change
+    toggleNodeVisibility('qr') // Hide qr select when dep select change
     doApiLogic('com', { resource: 'dep', value: event.target.value })
 });
 //Arr
 selectCom.addEventListener("change", (event) => {
+    toggleNodeVisibility('qr') // Hide qr select when com select change
     doApiLogic('arr', { resource: 'com', value: event.target.value })
 });
 //Qr
