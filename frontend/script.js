@@ -33,14 +33,22 @@ selectArr.addEventListener("change", (event) => {
 * @param {string} resource Resource to hide Default 'all'
 * @param {boolean} hide Hide or Show this resource ? Default true
 */
-function toggleNodeVisibility(hide = true) {
-    document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
+function toggleNodeVisibility(resource = 'all', hide = true) {
+    if (resource == 'all') {
+        document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
+            if (hide) {
+                select.classList.add('display-none')
+            } else {
+                select.classList.remove('display-none')
+            }
+        })
+    } else {
         if (hide) {
-            select.classList.add('display-none')
+            document.querySelector('#' + resource).classList.add('display-none')
         } else {
-            select.classList.remove('display-none')
+            document.querySelector('#' + resource).classList.remove('display-none')
         }
-    })
+    }
 }
 /**
 * Do API async call and dom manipulation
