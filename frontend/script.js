@@ -4,11 +4,6 @@ const selectCom = document.querySelector("#com")
 const selectArr = document.querySelector("#arr")
 const selectQr = document.querySelector("#qr")
 
-document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.container select:not(#dep)').forEach((select) => {
-        select.classList.add('display-none')
-    })
-})
 //After page loaded, hide selects
 document.addEventListener('DOMContentLoaded', () => {
     toggleNodeVisibility()
@@ -88,7 +83,8 @@ function doApiLogic(resource, parent = { resource: '', value: '' }) {
                  * @example window[`select${resource.charAt(0).toUpperCase() + resource.slice(1)}`].innerHTML = options
                  */
                 document.querySelector("#" + resource).innerHTML = options
-                document.querySelector("#" + resource).classList.remove('display-none')
+                toggleNodeVisibility(resource, false)
+
             } else {
                 alert("Something went wrong")
             }
