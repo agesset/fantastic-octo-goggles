@@ -1,12 +1,22 @@
 const api_url = 'https://lamenarrowformats--prunelmel.repl.co'
 const selectDep = document.querySelector("#dep")
 const selectCom = document.querySelector("#com")
+const selectArr = document.querySelector("#arr")
+const selectQr = document.querySelector("#qr")
 
 //Dep
 doApiLogic('dep')
 //Com
 selectDep.addEventListener("change", (event) => {
     doApiLogic('com', { resource: 'dep', value: event.target.value })
+});
+//Arr
+selectCom.addEventListener("change", (event) => {
+    doApiLogic('arr', { resource: 'com', value: event.target.value })
+});
+//Qr
+selectArr.addEventListener("change", (event) => {
+    doApiLogic('qr', { resource: 'arr', value: event.target.value })
 });
 
 /**
