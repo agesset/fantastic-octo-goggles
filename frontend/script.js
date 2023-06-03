@@ -50,6 +50,11 @@ function doApiLogic(resource, parent = { resource: '', value: '' }) {
                 for (const item in response.data) {
                     options += '<option value="' + response.data[item] + '">' + response.data[item] + '</option>'
                 }
+                /**
+                 * @description Or we can avoid repeating query selector use since we already querySelect #dep, #com, #arr and #qr nodes and store it in variables (constants) [see line 2 to line 5]. So we can dynamically reuse this variables (constants)
+                 * 
+                 * @example window[`select${resource.charAt(0).toUpperCase() + resource.slice(1)}`].innerHTML = options
+                 */
                 document.querySelector("#" + resource).innerHTML = options
             } else {
                 alert("Something went wrong")
