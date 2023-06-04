@@ -28,3 +28,7 @@ select {
   overflow-y: scroll;
 
 }
+
+.display-none{
+  display: none;
+}
